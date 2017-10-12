@@ -5,12 +5,12 @@ const counter = (state = 0, action) => {
     case 'DECREMENT':
       return state - 1;
     default:
-      return state;
+      return state
   }
 }
 
 expect(
-  counter(1, { type: 'INCREMENT' })
+  counter(0, { type: 'INCREMENT' })
 ).toEqual(1);
 
 expect(
@@ -18,7 +18,7 @@ expect(
 ).toEqual(2);
 
 expect(
-  counter(1, { type: 'DECREMENT' })
+  counter(2, { type: 'DECREMENT' })
 ).toEqual(1);
 
 expect(
@@ -33,4 +33,14 @@ expect(
   counter(undefined, {})
 ).toEqual(0);
 
-console.log('Tests passed!');
+console.log('Tests passed!') || displayInPreview('Tests passed!');
+
+
+
+// display in plunker preview
+function displayInPreview(string) {
+  var newDiv = document.createElement("div");
+  var newContent = document.createTextNode(string);
+  newDiv.appendChild(newContent);
+  document.body.appendChild(newDiv)
+}
